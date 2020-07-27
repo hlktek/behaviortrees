@@ -30,6 +30,7 @@
     vm.onExportNodesJson   = onExportNodesJson;
     vm.onImportProjectJson = onImportProjectJson;
     vm.onImportTreeJson    = onImportTreeJson;
+    vm.onImportTreeXml     = onImportTreeXml;
     vm.onImportNodesJson   = onImportNodesJson;
     vm.onUndo              = onUndo;
     vm.onRedo              = onRedo;
@@ -132,6 +133,10 @@
     }
     function onImportTreeJson() {
       $state.go('editor.import', {type:'tree', format:'json'});
+      return false;
+    }
+    function onImportTreeXml() {
+      $state.go('editor.import', {type:'tree', format:'xml'});
       return false;
     }
     function onImportNodesJson() {

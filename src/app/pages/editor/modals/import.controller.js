@@ -27,6 +27,7 @@
     vm.format       = null;
     vm.open         = open;
     vm.loadFromFile = loadFromFile;
+    vm.openWithXML  = openWithXML;
     vm.data         = '';
 
     _active();
@@ -71,6 +72,88 @@
 
       $state.go('editor');
     }
+
+    function openWithXML() {
+      var i = $window.editor.import;
+      let xml = vm.data;
+      let treeAsNewJson = xml2js(xml, {compact : true});
+      console.log(treeAsNewJson);
+
+      let root = {};
+
+      if (treeAsNewJson && treeAsNewJson.Board && treeAsNewJson.Board.Fighter) {
+        root = treeAsNewJson.Board.Fighter.Routine;
+      }
+      
+      let treeAsJson = {
+        "root": root._attributes.id,
+        "version": "0.3.0",
+        "scope": "tree",
+        "id": createUUID(),
+        "title": "A behavior tree",
+        "description": "",
+        "properties": {},
+        "nodes": {},
+        "display": {
+          "camera_x": 0,
+          "camera_y": 0,
+          "camera_z": 1,
+          "x": 0,
+          "y": 0
+      }
+      };
+
+      pushNode(treeAsJson.nodes, root);
+
+      console.log(treeAsJson);
+
+      i.treeAsData(treeAsJson);
+      $state.go('editor');
+    }
+
+    function pushNode(nodes, nodeNewJson) {
+      let node = nodes[nodeNewJson._attributes.id] = {
+        id : nodeNewJson._attributes.id,
+        name : nodeNewJson._attributes.name,
+        title : nodeNewJson._attributes.name,
+        description : '',
+        display : {
+          x : nodeNewJson._attributes.x,
+          y : nodeNewJson._attributes.y
+        },
+        properties : {
+
+        },
+        children : []
+      }
+
+      Object.keys(nodeNewJson._attributes).forEach( (key) => {
+        if (!['id', 'name', 'x', 'y'].includes(key)) {
+          node.properties[key] = nodeNewJson._attributes[key];
+        }
+      })
+
+      if (nodeNewJson.Routine){
+        if (Array.isArray(nodeNewJson.Routine)) {
+          let childrens = nodeNewJson.Routine;
+          childrens.forEach( children => {
+            node.children.push(children._attributes.id);
+            pushNode(nodes, children);
+          })
+        } else {
+          let children = nodeNewJson.Routine;
+          node.children.push(children._attributes.id);
+          pushNode(nodes, children);
+        }
+      }
+    }
+
+    function createUUID() {
+      return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function(c) {
+         var r = Math.random() * 16 | 0, v = c == 'x' ? r : (r & 0x3 | 0x8);
+         return v.toString(16);
+      });
+   }
   }
 
 })();

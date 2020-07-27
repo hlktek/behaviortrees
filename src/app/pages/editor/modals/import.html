@@ -24,8 +24,14 @@
         Cancel
       </button>
       <button class="btn btn-info btn-lg"
-              ng-click="import.open()">
-        Import
+              ng-click="import.open()"
+              ng-show="import.format == 'json'">
+        Import Json
+      </button>
+      <button class="btn btn-info btn-lg"
+              ng-click="import.openWithXML()"
+              ng-show="import.format == 'xml'">
+        Import XML
       </button>
     </div>
 
