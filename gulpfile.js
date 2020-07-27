@@ -29,6 +29,7 @@ var vendor_js = [
   'src/assets/libs/creatine-1.0.0.min.js',
   'src/assets/libs/behavior3js-0.1.0.min.js',
   'src/assets/libs/mousetrap.min.js',
+  'src/assets/libs/xml-js.js',
   'bower_components/angular/angular.min.js',
   'bower_components/angular-animate/angular-animate.min.js',
   'bower_components/angular-bootstrap/ui-bootstrap-tpls.min.js',

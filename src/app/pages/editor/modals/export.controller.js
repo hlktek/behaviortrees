@@ -51,6 +51,17 @@
       }
       else if (vm.type === 'nodes' && vm.format === 'json') {
         _createJson(e.nodesToData());
+      } else if (vm.type === 'tree' && vm.format === 'xml') {
+        const treeData = e.treeToData();
+
+        const treeDataNewJson = transformTreeDataToNewJson(treeData);
+        const xml = json2xml(treeDataNewJson, {compact : true, spaces: 4});
+
+        vm.data = treeData;
+        vm.compact = xml;
+        vm.pretty = xml;
+        vm.result = xml;
+
       }
     }
 
@@ -89,6 +100,50 @@
     }
     function showPretty() {
       vm.result = vm.pretty;
+    }
+
+    function transformTreeDataToNewJson(treeData) {
+        const nodes = treeData.nodes;
+
+        const root = {
+          "_declaration": {
+              "_attributes": {
+                  "version": "1.0",
+                  "encoding": "utf-8"
+              }
+          },
+          'Board' : {
+            'Fighter' : {
+              'Routine' : getNode(nodes, treeData.root)
+            }
+          }
+        }
+      
+        return root;
+    }
+
+    function getNode(nodes, nodeId) {
+      const node = nodes[nodeId];
+      let resultNode = {
+          '_attributes' : {
+            'id' : nodeId,
+            'name' : node.name,
+            'x' : node.display.x,
+            'y' : node.display.y
+          },
+          'Routine' : []
+        };
+      Object.keys(node.properties).forEach (key => {
+        resultNode._attributes[key] = node.properties[key];
+      })
+
+      if (node.children) {
+        node.children.forEach( (childId) => {
+          resultNode.Routine.push(getNode(nodes, childId));
+        })
+      }
+
+      return resultNode;
     }
   }
 
