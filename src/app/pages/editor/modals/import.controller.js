@@ -100,10 +100,26 @@
           "camera_z": 1,
           "x": 0,
           "y": 0
-      }
+        },
+        'custom_nodes' : []
       };
 
       pushNode(treeAsJson.nodes, root);
+
+      if (treeAsNewJson.Board.CustomField && Array.isArray(treeAsNewJson.Board.CustomField)) {
+        treeAsNewJson.Board.CustomField.forEach( (customFieldXml) => {
+          let customField = {};
+          Object.keys(customFieldXml).forEach( (key) => {
+            if (customFieldXml[key]._text) {
+              customField[key] = customFieldXml[key]._text
+            } else {
+              customField[key] = customFieldXml[key];
+            }
+          })
+
+          treeAsJson.custom_nodes.push(customField);
+        })
+      }
 
       console.log(treeAsJson);
 

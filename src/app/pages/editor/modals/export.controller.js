@@ -115,7 +115,8 @@
           'Board' : {
             'Fighter' : {
               'Routine' : getNode(nodes, treeData.root)
-            }
+            },
+            'CustomField' : treeData.custom_nodes
           }
         }
       
