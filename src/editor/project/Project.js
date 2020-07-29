@@ -24,23 +24,33 @@
     this.trees = new b3e.project.TreeManager(this._editor, this);
     this.nodes = new b3e.project.NodeManager(this._editor, this);
     this.history = new b3e.project.HistoryManager(this._editor, this);
+    console.log('add node')
 
     this.nodes.add(b3e.Root, true);
     this.nodes.add(b3.Sequence, true);
-    this.nodes.add(b3.Priority, true);
-    this.nodes.add(b3.MemSequence, true);
-    this.nodes.add(b3.MemPriority, true);
-    this.nodes.add(b3.Repeater, true);
-    this.nodes.add(b3.RepeatUntilFailure, true);
-    this.nodes.add(b3.RepeatUntilSuccess, true);
-    this.nodes.add(b3.MaxTime, true);
-    this.nodes.add(b3.Inverter, true);
-    this.nodes.add(b3.Limiter, true);
-    this.nodes.add(b3.Failer, true);
-    this.nodes.add(b3.Succeeder, true);
-    this.nodes.add(b3.Runner, true);
-    this.nodes.add(b3.Error, true);
-    this.nodes.add(b3.Wait, true);
+    // this.nodes.add(b3.Priority, true);
+    // this.nodes.add(b3.MemSequence, true);
+    // this.nodes.add(b3.MemPriority, true);
+    
+    // this.nodes.add(b3.Repeater, true);
+    // this.nodes.add(b3.RepeatUntilFailure, true);
+    // this.nodes.add(b3.RepeatUntilSuccess, true);
+    // this.nodes.add(b3.MaxTime, true);
+    // this.nodes.add(b3.Inverter, true);
+    // this.nodes.add(b3.Limiter, true);
+    // this.nodes.add(b3.Failer, true);
+    // this.nodes.add(b3.Succeeder, true);
+    // this.nodes.add(b3.Runner, true);
+    // this.nodes.add(b3.Error, true);
+    // this.nodes.add(b3.Wait, true);
+
+    // // custome node
+    // // this.nodes.add(b3.TestNewNode, true);
+    // this.nodes.add(b3.TestComposite, true);
+    // this.nodes.add(b3.TestDecorator, true);
+    // this.nodes.add(b3.TestNodeAction, true);
+    // this.nodes.add(b3.TestNodeCondition, true);
+
 
     this._applySettings(this._editor._settings);
     this.history.clear();

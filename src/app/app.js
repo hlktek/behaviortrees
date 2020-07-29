@@ -30,7 +30,13 @@ angular.module('app', [
     // add drop to canvas
     angular
       .element($window.editor._game.canvas)
-      .attr('b3-drop-node', true);
+      .attr('b3-drop-node', true)
+      .attr('id', "editor")
+
+    var div = document.createElement("div");
+    div.classList.add("editor-wrapper");
+    div.appendChild( document.getElementById("editor"));
+    document.body.appendChild(div); 
 
     // initialize editor
     settingsModel.getSettings();

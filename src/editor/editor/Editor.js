@@ -1,6 +1,23 @@
 (function () {
   "use strict";
 
+  // // Drag
+  // var offset = new createjs.Point();
+  // function startDrag(event) {
+  //     offset.x = stage.mouseX - dragContainer.x;
+  //     offset.y = stage.mouseY - dragContainer.y;
+  //     event.addEventListener("mousemove", doDrag);   
+  // }
+  // function doDrag(event) {
+  //     dragContainer.x = event.stageX - offset.x;
+  //     dragContainer.y = event.stageY - offset.y;
+  // }
+
+  // // Update the stage
+  // function tick(event) {
+  //     stage.update();
+  // }
+
   /**
    * Editor main class.
    */
@@ -43,8 +60,37 @@
 
     // RESIZE
     var resize = function() {
-      self._game.canvas.width = window.innerWidth;
-      self._game.canvas.height = window.innerHeight;
+      self._game.canvas.width = window.innerWidth*2;
+      self._game.canvas.height = window.innerHeight*2;
+      // console.log(self._game.canvas)
+
+      var canvas = document.getElementsByTagName("canvas")[0];;
+      console.log(canvas)
+      var ctx = canvas.getContext('2d');
+      console.log(ctx)
+      var x = null;
+      var y;
+
+      canvas.mousedown = function(e)
+      {
+        debugger
+        x = e.pageX - canvas.offsetLeft;
+        y = e.pageY - canvas.offsetTop;
+        ctx.beginPath();
+        ctx.moveTo(x,y);
+      }
+      canvas.onmouseup = function(e)
+      {
+        x = null;
+      }  
+      canvas.onmousemove = function(e)
+      {
+        if (x==null) return;
+        x = e.pageX - canvas.offsetLeft;
+        y = e.pageY - canvas.offsetLeft;
+        ctx.lineTo(x,y);
+        ctx.stroke();
+      }  
     };
     window.onresize = resize;
     resize();
@@ -123,7 +169,6 @@
 
     canvas.setAttribute('width', block._width*tree.scaleX*2);
     canvas.setAttribute('height', block._height*tree.scaleY*2);
-
     var stage = new createjs.Stage(canvas);
     stage.scaleX = tree.scaleX;
     stage.scaleY = tree.scaleY;
@@ -142,4 +187,6 @@
   };
 
   b3e.editor.Editor = createjs.promote(Editor, 'Container');
+
+  
 })();

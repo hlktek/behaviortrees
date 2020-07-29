@@ -134,6 +134,7 @@
           _setProject(project);
           resolve();
         } catch (e) {
+          console.log('openProject fail', e)
           reject(e);
         }
       });

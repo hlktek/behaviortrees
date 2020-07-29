@@ -36,12 +36,13 @@
         decorator : [],
         action    : [],
         condition : [],
+        // newcate : [],
       };
 
       var p = $window.editor.project.get();
+      console.log('add node vao menu')
       p.nodes.each(function(node) {
         if (node.category === 'tree') return;
-
         var list = vm.nodes[node.category];
         if (!list) return;
         list.push({

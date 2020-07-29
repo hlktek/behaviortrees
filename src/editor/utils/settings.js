@@ -61,6 +61,9 @@
     block_action_height    : 40,
     block_condition_width  : 160,
     block_condition_height : 40,
+
+    block_newcate_width  : 60,
+    block_newcate_height : 60,
   };
 
   b3e.DEFAULT_SETTINGS = DEFAULT_SETTINGS;
