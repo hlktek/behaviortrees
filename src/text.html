@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8"/>
+  
+  <title>Behavior3 Editor - v[BUILD_VERSION] - http://behavior3.com</title>
+
+  <style>
+    #editor-wrapper{
+      /* width: calc(100% - 510px);*/
+      width: 800px;
+      height: 800px;
+      position: relative;
+      overflow: scroll;
+      margin: 0px auto;
+      background: #ff0;
+    }
+    #canvas-wrapper{
+      width: 3360px;
+      position: relative;
+      background: #222;
+      color: #f00;
+      height: 2500px;
+      padding-left: 100px
+    }
+  </style>
+  
+</head>
+
+<body >
+    <div id="editor-wrapper">
+      <button id="btn">click</button>
+      <div id="canvas-wrapper">
+        <div>sdgsdgsdg</div>
+        <div>sdgsdgsdg</div>
+        <div>sdgsdgsdg</div>
+        <div>sdgsdgsdg</div>
+        <div>sdgsdgsdg</div>
+        <div>sdgsdgsdg</div>
+        <div>sdgsdgsdg</div>
+        <div>sdgsdgsdg</div>
+        <div>sdgsdgsdg</div>
+        <div>sdgsdgsdg</div>
+        <div>sdgsdgsdg</div>
+      </div>
+      
+    </div>
+  
+    <script>
+      document.getElementById('btn').addEventListener('click', e => {
+        e.preventDefault();
+        var a = document.getElementById('editor-wrapper');
+        a.scrollLeft = 100;
+      });
+    </script>
+</body>
+</html>
+

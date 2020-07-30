@@ -1,6 +1,18 @@
 (function () {
   "use strict";
 
+  function loadNodesJSON(callback) {   
+      var xobj = new XMLHttpRequest();
+          xobj.overrideMimeType("application/json");
+      xobj.open('GET', '/js/notes.json', true);
+      xobj.onreadystatechange = function () {
+            if (xobj.readyState == 4 && xobj.status == "200") {
+              callback(xobj.responseText);
+            }
+      };
+      xobj.send(null);  
+  }
+
   var Project = function(editor) {
     this.Container_constructor();
 
@@ -24,8 +36,8 @@
     this.trees = new b3e.project.TreeManager(this._editor, this);
     this.nodes = new b3e.project.NodeManager(this._editor, this);
     this.history = new b3e.project.HistoryManager(this._editor, this);
-    console.log('add node')
-
+    
+    
     this.nodes.add(b3e.Root, true);
     this.nodes.add(b3.Sequence, true);
     // this.nodes.add(b3.Priority, true);
@@ -43,14 +55,24 @@
     // this.nodes.add(b3.Runner, true);
     // this.nodes.add(b3.Error, true);
     // this.nodes.add(b3.Wait, true);
-
-    // // custome node
-    // // this.nodes.add(b3.TestNewNode, true);
+    
+    // custome node
+    // this.nodes.add(b3.TestNewNode, true);
     // this.nodes.add(b3.TestComposite, true);
     // this.nodes.add(b3.TestDecorator, true);
     // this.nodes.add(b3.TestNodeAction, true);
     // this.nodes.add(b3.TestNodeCondition, true);
 
+    var _self = this
+    loadNodesJSON(function(response) {
+      var nodes = JSON.parse(response);
+      var custom_nodes = nodes.custom_nodes
+      if(custom_nodes && custom_nodes.length >0 ){
+        custom_nodes.forEach(function (node) {
+          _self.nodes.add(b3[node.name], true);
+        });
+      }
+    });
 
     this._applySettings(this._editor._settings);
     this.history.clear();
@@ -64,4 +86,5 @@
   };
 
   b3e.project.Project = createjs.promote(Project, 'Container');
+
 })();

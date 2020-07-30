@@ -49,6 +49,10 @@ var preload_js = [
   'src/assets/js/preload.js',
 ];
 
+var node_json = [
+  'src/assets/notes.json',
+];
+
 var preload_css = [
   'bower_components/fontawesome/css/font-awesome.min.css',
   'src/assets/css/preload.css',
@@ -111,6 +115,12 @@ gulp.task('_preload_js', function() {
              .pipe(connect.reload())
 });
 
+gulp.task('_node_json', function() {
+  return gulp.src(node_json)
+             .pipe(gulp.dest('build/js'))
+             .pipe(connect.reload())
+});
+
 gulp.task('_preload_css', function() {
   return gulp.src(preload_css)
              .pipe(minifyCSS())
@@ -119,7 +129,7 @@ gulp.task('_preload_css', function() {
              .pipe(connect.reload())
 });
 
-gulp.task('_preload', ['_preload_js', '_preload_css']);
+gulp.task('_preload', ['_preload_js', '_preload_css', '_node_json']);
 
 
 // TASKS (APP) ================================================================

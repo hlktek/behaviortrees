@@ -217,7 +217,6 @@
       return false;
     }
     function onRemove() {
-      debugger
       var tree = _getTree();
       tree.edit.remove();
       return false;

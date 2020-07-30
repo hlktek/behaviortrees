@@ -64,6 +64,7 @@
       self._game.canvas.height = window.innerHeight*2;
       // console.log(self._game.canvas)
 
+      
       var canvas = document.getElementsByTagName("canvas")[0];;
       console.log(canvas)
       var ctx = canvas.getContext('2d');
@@ -91,6 +92,8 @@
         ctx.lineTo(x,y);
         ctx.stroke();
       }  
+
+      
     };
     window.onresize = resize;
     resize();

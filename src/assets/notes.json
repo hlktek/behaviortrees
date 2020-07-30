@@ -1,0 +1,330 @@
+{
+  "version": "0.3.0",
+  "scope": "project",
+  "custom_nodes": [
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Selector",
+      "category": "composite",
+      "title": "Selector",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsFakeIdle",
+      "category": "condition",
+      "title": "IsFakeIdle",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsEnemyBackLeft",
+      "category": "condition",
+      "title": "IsEnemyBackLeft",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "GoRight",
+      "category": "action",
+      "title": "GoRight",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsEnemyGoLeft",
+      "category": "condition",
+      "title": "IsEnemyGoLeft",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "RandomSelector",
+      "category": "composite",
+      "title": "RandomSelector",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsNotTropicalZone",
+      "category": "condition",
+      "title": "IsNotTropicalZone",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Idle",
+      "category": "action",
+      "title": "Idle",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "BackRight",
+      "category": "action",
+      "title": "BackRight",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsNotFightZone",
+      "category": "condition",
+      "title": "IsNotFightZone",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsAttack",
+      "category": "condition",
+      "title": "IsAttack",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsPolarZone",
+      "category": "condition",
+      "title": "IsPolarZone",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsFullHp",
+      "category": "condition",
+      "title": "IsFullHp",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsMoreHp",
+      "category": "condition",
+      "title": "IsMoreHp",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsTemperateZone",
+      "category": "condition",
+      "title": "IsTemperateZone",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsTropicalZone",
+      "category": "condition",
+      "title": "IsTropicalZone",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsHit",
+      "category": "condition",
+      "title": "IsHit",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Stagger",
+      "category": "action",
+      "title": "Stagger",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Dodge",
+      "category": "action",
+      "title": "Dodge",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsEnemyKick",
+      "category": "condition",
+      "title": "IsEnemyKick",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsEnemyPeck",
+      "category": "condition",
+      "title": "IsEnemyPeck",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "HasCounterattack",
+      "category": "condition",
+      "title": "HasCounterattack",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Counterattack",
+      "category": "action",
+      "title": "Counterattack",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "HasDodge",
+      "category": "condition",
+      "title": "HasDodge",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Go",
+      "category": "action",
+      "title": "Go",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Jump",
+      "category": "action",
+      "title": "Jump",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsEnemyBack",
+      "category": "condition",
+      "title": "IsEnemyBack",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsEnemyGo",
+      "category": "condition",
+      "title": "IsEnemyGo",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsNotPolar",
+      "category": "condition",
+      "title": "IsNotPolar",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "GoBack",
+      "category": "action",
+      "title": "GoBack",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "JumpBack",
+      "category": "action",
+      "title": "JumpBack",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Kick",
+      "category": "action",
+      "title": "Kick",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Peck",
+      "category": "action",
+      "title": "Peck",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "FakeAttack",
+      "category": "action",
+      "title": "FakeAttack",
+      "description": "",
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Scare",
+      "category": "action",
+      "title": "Scare",
+      "description": null,
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsEnemyScare",
+      "category": "condition",
+      "title": "IsEnemyScare",
+      "description": null,
+      "properties": {}
+    }
+  ]
+}

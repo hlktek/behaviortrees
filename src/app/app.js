@@ -33,10 +33,18 @@ angular.module('app', [
       .attr('b3-drop-node', true)
       .attr('id', "editor")
 
-    var div = document.createElement("div");
-    div.classList.add("editor-wrapper");
-    div.appendChild( document.getElementById("editor"));
-    document.body.appendChild(div); 
+    
+    var divL2 = document.createElement("div");
+    divL2.setAttribute("id", "canvas-wrapper");
+    
+
+    divL2.appendChild(document.getElementById("editor"));
+
+    var divL1 = document.createElement("div");
+    divL1.classList.add("editor-wrapper");
+    divL1.setAttribute("id", "editor-wrapper");
+    divL1.appendChild(divL2);
+    document.body.appendChild(divL1); 
 
     // initialize editor
     settingsModel.getSettings();

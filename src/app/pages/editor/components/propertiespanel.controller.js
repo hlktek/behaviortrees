@@ -27,7 +27,6 @@
       var p = $window.editor.project.get();
       var t = p.trees.getSelected();
       var s = t.blocks.getSelected();
-
       if (s.length === 1) {
         vm.original = s[0];
         vm.block = {
