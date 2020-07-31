@@ -61,7 +61,7 @@
     // RESIZE
     var resize = function() {
       self._game.canvas.width = window.innerWidth*3;
-      self._game.canvas.height = window.innerHeight*3;
+      self._game.canvas.height = window.innerHeight;
       // console.log(self._game.canvas)
 
       var canvas = self._game.canvas;
@@ -97,7 +97,7 @@
             marginLeft += delta;
             marginTop += deltaY;
             canvas.style.marginLeft = marginLeft + "px";
-            canvas.style.marginTop = marginTop + "px";
+            // canvas.style.marginTop = marginTop + "px";
         }
         // e.preventDefault();
       }, false);
