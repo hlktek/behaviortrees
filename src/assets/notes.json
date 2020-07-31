@@ -32,15 +32,6 @@
     {
       "version": "0.3.0",
       "scope": "node",
-      "name": "GoRight",
-      "category": "action",
-      "title": "GoRight",
-      "description": {},
-      "properties": {}
-    },
-    {
-      "version": "0.3.0",
-      "scope": "node",
       "name": "IsEnemyGoLeft",
       "category": "condition",
       "title": "IsEnemyGoLeft",
@@ -71,15 +62,6 @@
       "name": "Idle",
       "category": "action",
       "title": "Idle",
-      "description": {},
-      "properties": {}
-    },
-    {
-      "version": "0.3.0",
-      "scope": "node",
-      "name": "BackRight",
-      "category": "action",
-      "title": "BackRight",
       "description": {},
       "properties": {}
     },
@@ -325,6 +307,17 @@
       "title": "IsEnemyScare",
       "description": null,
       "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsHp",
+      "category": "condition",
+      "title": "IsHp",
+      "description": null,
+      "properties": {
+        "hp":50
+      }
     }
   ]
 }
