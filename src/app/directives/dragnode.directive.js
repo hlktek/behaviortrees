@@ -18,8 +18,8 @@
 
     function link(scope, element, attrs) {
       element.attr('draggable', 'true');
-
       element.bind('dragstart', function(e) {
+        window.renderTextProps = null;
         var canvas = $window.editor.preview(attrs.name);
         var isChrome = navigator.userAgent.toLowerCase().indexOf('chrome')>-1;
 

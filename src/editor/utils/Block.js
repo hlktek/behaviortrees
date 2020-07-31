@@ -79,9 +79,12 @@
     this._displayShape = shape(this, this._settings);
 
     this.addChild(this._displayShape);
-    this.addChild(this._displaySymbol); 
 
-    this.addChild(this._displayProperties); 
+    this.addChild(this._displaySymbol);
+    
+    //if(category=='action'){
+      this.addChild(this._displayProperties); 
+    //}
   };
 
   /**

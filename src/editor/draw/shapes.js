@@ -85,18 +85,25 @@
   };
 
   b3e.draw.compositeShape = function(block, settings) {
+    var propsHeight = 0;
+    if(block._displayProperties){
+      var propertiesBounds = block._displayProperties.getBounds();
+      propsHeight = propertiesBounds.height
+    }
+
+
     var bounds = block._displaySymbol.getBounds();
     var _width = 0;
 
-    if (bounds) { _width = bounds.width+20; }
+    if (bounds) { _width = bounds.width+40; }
 
     var w = Math.max(_width, block._width);
-    var h = block._height;
+    var h = propsHeight + block._height;
     var anchorOffsetX = settings.get('anchor_offset_x');
     var shape = block._displayShape;
     block._width = w;
     block._height = h;
-
+    shape.height = h;
     var x = 0;
     var y = 0;
     if (settings.get('layout') === 'horizontal') {
@@ -160,15 +167,20 @@
         settings.get('block_border_width'),
         settings.get('block_border_color')
     );
-    console.log('a')
     return shape;
   };
 
   b3e.draw.actionShape = function(block, settings) {
+    var propsHeight = 0;
+    if(block._displayProperties){
+      var propertiesBounds = block._displayProperties.getBounds();
+      propsHeight = propertiesBounds.height
+    }
 
     var bounds = block._displaySymbol.getBounds();
     var w = Math.max(bounds.width+15, block._width);
-    var h = Math.max(bounds.height+15, block._height);
+    var h = Math.max(propsHeight + bounds.height+15, block._height);
+
     var anchorOffsetX = settings.get('anchor_offset_x');
     var shape = block._displayShape;
     block._width = w;
@@ -196,10 +208,17 @@
   };
 
   b3e.draw.conditionShape = function(block, settings) {
+    var propsHeight = 0;
+    if(block._displayProperties){
+      var propertiesBounds = block._displayProperties.getBounds();
+      propsHeight = propertiesBounds.height
+    }
+
+
     var bounds = block._displaySymbol.getBounds();
 
     var w = Math.max(bounds.width+15, block._width);
-    var h = Math.max(bounds.height+15, block._height);
+    var h = Math.max(propsHeight + bounds.height+15, block._height);
     var anchorOffsetX = settings.get('anchor_offset_x');
     var shape = block._displayShape;
     block._width = w;

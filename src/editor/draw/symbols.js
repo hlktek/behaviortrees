@@ -124,61 +124,101 @@
       settings.get("block_symbol_color")
     );
     text.textAlign = "center";
-
+    // var boundsProps = textProps.getBounds();
+    
     var bounds = text.getBounds();
-    text.regY = bounds.height / 2;
-
+    var regYVal = bounds.height / 2;
+    if(window.renderTextProps){
+      bounds = window.renderTextProps.getBounds();
+      regYVal = (bounds.height / 2)+5;
+    }
+    text.regY = regYVal;
+    //text.regY = -block._height;
     // text.x = -block._width/2;
     // text.y = -block._height/2;
-
     return text;
   };
 
   b3e.draw.blockProperties = function (block, settings) {
     var properties = block.properties;
     var numberOfPropetiers = Object.keys(properties).length
-
-    if(numberOfPropetiers <=0 ) return null
-
-    var rectangleHeight = 30
-    if(numberOfPropetiers>1){
-      rectangleHeight += numberOfPropetiers*8
-    }
-    var rect = new createjs.Rectangle(0, 0, 120, rectangleHeight);
-    // var properties = block.properties;
-    
-    var container = new createjs.Container();
-    container.x = -(rect.x + 60);
-    container.y = rect.y + block._height / 2 + 10;
-    var rectShape = new createjs.Shape();
-    rectShape.graphics.c().f("#555").dr(0, 0, rect.width, rect.height);
-
-    container.addChild(rectShape);
-    for (var key in properties) {
-      
-      if( typeof properties[key] !== 'undefined' ){
-        var i = Object.keys(properties).indexOf(key)+1;
-        // console.log(key + " -> " + properties[key]);
-        var t = key + ": " + properties[key]
-        var text = new createjs.Text(
-          t,
-          "12px Arial",
-          settings.get("root_color"),
-        );
-    
-        text.set({
-          x: rect.x + 10,
-          y: rect.y + i*10
-        })
-        container.addChild(text);
+    var t = '';
+    if(numberOfPropetiers >0){
+      for (var key in properties) {
+        if( typeof properties[key] !== 'undefined' ){
+          t += '\n' + key + ": " + properties[key] ;
+        }
       }
     }
 
-    // container.x = -block._width / 2;
-    // container.y = -block._height / 2;
+    if(t){
+      var textProps = new createjs.Text(
+        t,
+        "12px Arial",
+        settings.get("block_border_color")
+      );
+      textProps.textAlign = "center";
+      var boundsProps = textProps.getBounds();
+      textProps.regY = (boundsProps.height / 2)-10;
+      // text.regY = bounds.height / 2;
 
-    return container;
+      // textProps.x = -block._width/2+15;
+      
+      // textProps.y = -block._height+50;
+      // textProps.y = -block._height+50;
+      window.renderTextProps = textProps;
+      b3e.draw.textSymbol(block, settings);
+      return textProps;
+    }
+   
+    return null
+
   };
+  // b3e.draw.blockProperties = function (block, settings) {
+  //   var properties = block.properties;
+  //   var numberOfPropetiers = Object.keys(properties).length
+
+  //   if(numberOfPropetiers <=0 ) return null
+
+  //   var rectangleHeight = 30
+  //   if(numberOfPropetiers>1){
+  //     rectangleHeight += numberOfPropetiers*8
+  //   }
+  //   var rect = new createjs.Rectangle(0, 0, 120, rectangleHeight);
+  //   // var properties = block.properties;
+    
+  //   var container = new createjs.Container();
+  //   container.x = -(rect.x + 60);
+  //   container.y = rect.y + block._height / 2 + 10;
+  //   var rectShape = new createjs.Shape();
+  //   rectShape.graphics.c().f("#555").dr(0, 0, rect.width, rect.height);
+
+  //   container.addChild(rectShape);
+  //   for (var key in properties) {
+      
+  //     if( typeof properties[key] !== 'undefined' ){
+  //       var i = Object.keys(properties).indexOf(key)+1;
+  //       // console.log(key + " -> " + properties[key]);
+  //       var t = key + ": " + properties[key]
+  //       var text = new createjs.Text(
+  //         t,
+  //         "12px Arial",
+  //         settings.get("root_color"),
+  //       );
+    
+  //       text.set({
+  //         x: rect.x + 10,
+  //         y: rect.y + i*10
+  //       })
+  //       container.addChild(text);
+  //     }
+  //   }
+
+  //   // container.x = -block._width / 2;
+  //   // container.y = -block._height / 2;
+
+  //   return container;
+  // };
 
   b3e.draw.SYMBOLS = {
     Root: b3e.draw.rootSymbol,

@@ -60,14 +60,16 @@
 
     // RESIZE
     var resize = function() {
-      self._game.canvas.width = window.innerWidth*2;
-      self._game.canvas.height = window.innerHeight;
+      self._game.canvas.width = window.innerWidth*3;
+      self._game.canvas.height = window.innerHeight*3;
       // console.log(self._game.canvas)
 
       var canvas = self._game.canvas;
       var dragging = false;
       var lastX;
+      var lastY;
       var marginLeft = 0;
+      var marginTop = 0;
       
       canvas.addEventListener('mousedown', function(e) {
         var p = window.editor.project.get();
@@ -79,6 +81,7 @@
           var evt = e || event;
           dragging = true;
           lastX = evt.clientX;
+          lastY = evt.clientY;
           e.preventDefault();
         }
         
@@ -88,9 +91,13 @@
         var evt = e || event;
         if (dragging) {
             var delta = evt.clientX - lastX;
+            var deltaY = evt.clientY - lastY;
             lastX = evt.clientX;
+            lastY = evt.clientY;
             marginLeft += delta;
+            marginTop += deltaY;
             canvas.style.marginLeft = marginLeft + "px";
+            canvas.style.marginTop = marginTop + "px";
         }
         // e.preventDefault();
       }, false);

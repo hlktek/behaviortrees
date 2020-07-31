@@ -49,8 +49,8 @@
 
     // this.view.center();
     var canvas = this._editor._game.canvas;
-    var hh = canvas.height/2;
-    this.view.setCam(300, hh);
+    // var hh = canvas.height/2;
+    this.view.setCam(300, 300);
   };
 
   p._applySettings = function(settings) {
