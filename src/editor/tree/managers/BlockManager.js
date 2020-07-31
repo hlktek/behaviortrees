@@ -128,7 +128,7 @@ b3e.tree.BlockManager = function(editor, project, tree) {
       block.properties = tine.merge({}, node.properties, block.properties);
     }
     block._redraw();
-
+    
     var _newValues = {
       name        : block.name,
       title       : block.title,

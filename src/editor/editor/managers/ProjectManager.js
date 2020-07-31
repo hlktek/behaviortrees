@@ -6,7 +6,7 @@ b3e.editor.ProjectManager = function(editor) {
    */
   this.create = function() {
     this.close();
-
+    console.log('createproject')
     var project = new b3e.project.Project(editor);
     editor.addChild(project);
     editor._project = project;
@@ -20,8 +20,9 @@ b3e.editor.ProjectManager = function(editor) {
    */
   this.open = function(data) {
     this.close();
-
+    console.log('openproject')
     var project = new b3e.project.Project(editor);
+
     editor.addChild(project);
     editor._project = project;
     

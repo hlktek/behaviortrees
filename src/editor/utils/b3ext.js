@@ -21,12 +21,18 @@ function loadNodesJSON(callback) {
 
 (function() {
     "use strict";
-
+    
     loadNodesJSON(function(response) {
         var nodes = JSON.parse(response);
         var custom_nodes = nodes.custom_nodes
         var newNode;
         if(custom_nodes && custom_nodes.length >0 ){
+            // console.log('bbbb', b3e.editor)
+            console.log('bbbb', b3e.project)
+
+
+            var nodesE = new b3e.project.NodeManager(b3e.editor, b3e.project);
+            console.log(nodeE)
             custom_nodes.forEach(function (node) {
                 var nodeCategory = capitalizeFirstLetter(node.category);
                 newNode = b3.Class(b3[nodeCategory]);
@@ -38,6 +44,7 @@ function loadNodesJSON(callback) {
                 }
                 
                 b3[node.name] = newNode;
+                nodesE.add(newNode, true)
             });
         }
     });

@@ -9,6 +9,7 @@
     '$q',
     '$rootScope',
     '$window',
+    '$timeout',
     'storageService',
     'systemService',
     'localStorageService',
@@ -18,6 +19,7 @@
   function projectModel($q,
                           $rootScope,
                           $window,
+                          $timeout,
                           storageService,
                           systemService,
                           localStorageService,
@@ -130,7 +132,10 @@
       return $q(function(resolve, reject) {
         try {
           var project = storageService.load(path);
-          editorService.openProject(project.data);
+          $timeout(function(){
+            editorService.openProject(project.data);
+          });
+          
           _setProject(project);
           resolve();
         } catch (e) {

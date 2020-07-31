@@ -69,6 +69,7 @@
 
     function remove(i) {
       vm.rows.splice(i, 1);
+      change();
     }
 
     function change() {

@@ -33,6 +33,7 @@ b3e.editor.DragSystem = function(editor) {
     if (!block._hitBody(x, y)) return;
 
     // start dragging
+    window.isDragPoint = true
     isDragging = true;
     dragX0 = x;
     dragY0 = y;
@@ -43,6 +44,7 @@ b3e.editor.DragSystem = function(editor) {
       block._dragOffsetX = x - block.x;
       block._dragOffsetY = y - block.y;
     }
+
   };
 
   this.onMouseMove = function(e) {
@@ -97,7 +99,7 @@ b3e.editor.DragSystem = function(editor) {
     for (var i=0; i<tree._selectedBlocks.length; i++) {
       var block = tree._selectedBlocks[i];
       block._isDragging = false;
-
+      window.isDragPoint = false;
       var _old = [block, dragX0-block._dragOffsetX, dragY0-block._dragOffsetY];
       var _new = [block, block.x, block.y];
 

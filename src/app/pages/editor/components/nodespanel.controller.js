@@ -99,18 +99,18 @@
       var p = $window.editor.project.get();
       p.trees.add();
 
-      var editor = document.getElementById('editor');
-      var editorWidth = editor.width;
-      var editorHeight = editor.height;
+      // var editor = document.getElementById('editor');
+      // var editorWidth = editor.width;
+      // var editorHeight = editor.height;
 
-      var wrapper = document.getElementById('editor-wrapper');
-      var wrapperWidth = wrapper.offsetWidth;
-      var wrapperheight = wrapper.offsetHeight;
-      console.log(wrapperWidth, wrapperheight)
+      // var wrapper = document.getElementById('editor-wrapper');
+      // var wrapperWidth = wrapper.offsetWidth;
+      // var wrapperheight = wrapper.offsetHeight;
+      // console.log(wrapperWidth, wrapperheight)
       
-      var scrollLeft = editorWidth-(editorWidth/2+wrapperWidth/2)
-      var scrollTop = editorHeight-(editorHeight/2+wrapperheight/2)
-      wrapper.scrollTo(scrollLeft,scrollTop);
+      // var scrollLeft = editorWidth-(editorWidth/2+wrapperWidth/2)
+      // var scrollTop = editorHeight-(editorHeight/2+wrapperheight/2)
+      // wrapper.scrollTo(scrollLeft,scrollTop);
       
 
     }

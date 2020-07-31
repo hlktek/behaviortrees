@@ -3,10 +3,11 @@ b3e.editor.ConnectionSystem = function(editor) {
 
   var connection = null;
   var lastOutBlock = null;
-
+  
   this.update = function(delta) {};
 
   this.onMouseDown = function(e) {
+    
     if (e.nativeEvent.which !== 1) return;
 
     var project = editor.project.get();
@@ -24,6 +25,7 @@ b3e.editor.ConnectionSystem = function(editor) {
     if (connection || !block) return;
 
     if (block._hitOutAnchor(x, y)) {
+      window.isConnectingBlock = true;
       // if user clicked at the outAnchor
       connection = tree.connections.add(block, null);
 
@@ -117,6 +119,8 @@ b3e.editor.ConnectionSystem = function(editor) {
     project.history._endBatch();
 
     connection = null;
+
+    window.isConnectingBlock = false;
   };
 
   editor._game.stage.on('stagemousedown', this.onMouseDown, this);

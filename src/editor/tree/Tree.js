@@ -47,7 +47,10 @@
     this._root = this.blocks.add('Root', 0, 0);
     this._applySettings(this._editor._settings);
 
-    this.view.center();
+    // this.view.center();
+    var canvas = this._editor._game.canvas;
+    var hh = canvas.height/2;
+    this.view.setCam(300, hh);
   };
 
   p._applySettings = function(settings) {

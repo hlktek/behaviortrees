@@ -34,17 +34,17 @@ angular.module('app', [
       .attr('id', "editor")
 
     
-    var divL2 = document.createElement("div");
-    divL2.setAttribute("id", "canvas-wrapper");
+    // var divL2 = document.createElement("div");
+    // divL2.setAttribute("id", "canvas-wrapper");
     
 
-    divL2.appendChild(document.getElementById("editor"));
+    // divL2.appendChild(document.getElementById("editor"));
 
-    var divL1 = document.createElement("div");
-    divL1.classList.add("editor-wrapper");
-    divL1.setAttribute("id", "editor-wrapper");
-    divL1.appendChild(divL2);
-    document.body.appendChild(divL1); 
+    // var divL1 = document.createElement("div");
+    // divL1.classList.add("editor-wrapper");
+    // divL1.setAttribute("id", "editor-wrapper");
+    // divL1.appendChild(divL2);
+    // document.body.appendChild(divL1); 
 
     // initialize editor
     settingsModel.getSettings();

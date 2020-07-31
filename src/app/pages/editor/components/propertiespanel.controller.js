@@ -67,6 +67,7 @@
     }
 
     function update() {
+      console.log('update')
       var p = $window.editor.project.get();
       var t = p.trees.getSelected();
       t.blocks.update(vm.original, vm.block);

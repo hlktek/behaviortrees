@@ -10,7 +10,6 @@ b3e.project.NodeManager = function(editor, project) {
    */
   this.add = function(node, isDefault) {
     if (node.prototype) node = node.prototype;
-
     if (project._nodes[node.name]) {
       return false;
     }

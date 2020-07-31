@@ -11,29 +11,34 @@
    * @param {Object} node A `b3e.Node` object.
    */
   var Block = function(node) {
-    this.Container_constructor();
+    console.log(node)
 
-    var dict = node.prototype || node;
-    this.id          = b3.createUUID();
-    this.node        = node;
-    this.name        = dict.name;
-    this.title       = dict.title || this.name;
-    this.category    = dict.category;
-    this.description = dict.description || '';
-    this.properties  = tine.merge({}, dict.properties);
+    if(typeof node !== 'undefined') {
+      this.Container_constructor();
 
-    this._settings = null;
-    this._inConnection = null;
-    this._outConnections = [];
-    this._isSelected = null;
-    this._isDragging = null;
-    this._dragOffsetX = null;
-    this._dragOffsetY = null;
-    this._width = null;
-    this._height = null;
-    this._displayShape = new createjs.Shape();
-    this._displaySymbol = null;
-    this._displayShadow = null;
+      var dict = node.prototype || node;
+      this.id          = b3.createUUID();
+      this.node        = node;
+      this.name        = dict.name;
+      this.title       = dict.title || this.name;
+      this.category    = dict.category;
+      this.description = dict.description || '';
+      this.properties  = tine.merge({}, dict.properties);
+
+      this._settings = null;
+      this._inConnection = null;
+      this._outConnections = [];
+      this._isSelected = null;
+      this._isDragging = null;
+      this._dragOffsetX = null;
+      this._dragOffsetY = null;
+      this._width = null;
+      this._height = null;
+      this._displayShape = new createjs.Shape();
+      this._displaySymbol = null;
+      this._displayShadow = null;
+    }
+    
   };
   var p = createjs.extend(Block, createjs.Container);
   
@@ -63,17 +68,21 @@
     var category = this.category.toLowerCase();
     var shape = b3e.draw.SHAPES[category];
     var symbol = b3e.draw.SYMBOLS[name] || b3e.draw.textSymbol;
+    var properties = b3e.draw.blockProperties;
 
     this._width = this._settings.get('block_'+category+'_width');
     this._height = this._settings.get('block_'+category+'_height');
     this.removeAllChildren();
 
+    this._displayProperties = properties(this, this._settings);
     this._displaySymbol = symbol(this, this._settings);
     this._displayShape.graphics.clear();
     this._displayShape = shape(this, this._settings);
 
     this.addChild(this._displayShape);
-    this.addChild(this._displaySymbol);
+    this.addChild(this._displaySymbol); 
+
+    this.addChild(this._displayProperties); 
   };
 
   /**

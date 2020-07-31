@@ -61,38 +61,43 @@
     // RESIZE
     var resize = function() {
       self._game.canvas.width = window.innerWidth*2;
-      self._game.canvas.height = window.innerHeight*2;
+      self._game.canvas.height = window.innerHeight;
       // console.log(self._game.canvas)
 
+      var canvas = self._game.canvas;
+      var dragging = false;
+      var lastX;
+      var marginLeft = 0;
       
-      var canvas = document.getElementsByTagName("canvas")[0];;
-      console.log(canvas)
-      var ctx = canvas.getContext('2d');
-      console.log(ctx)
-      var x = null;
-      var y;
-
-      canvas.mousedown = function(e)
-      {
-        debugger
-        x = e.pageX - canvas.offsetLeft;
-        y = e.pageY - canvas.offsetTop;
-        ctx.beginPath();
-        ctx.moveTo(x,y);
-      }
-      canvas.onmouseup = function(e)
-      {
-        x = null;
-      }  
-      canvas.onmousemove = function(e)
-      {
-        if (x==null) return;
-        x = e.pageX - canvas.offsetLeft;
-        y = e.pageY - canvas.offsetLeft;
-        ctx.lineTo(x,y);
-        ctx.stroke();
-      }  
-
+      canvas.addEventListener('mousedown', function(e) {
+        var p = window.editor.project.get();
+        var t = p.trees.getSelected();
+        var s = t.blocks.getSelected();
+        console.log('on mousedown canvas')
+        
+        if (s.length === 0 && !window.isDragPoint && !window.isConnectingBlock) {
+          var evt = e || event;
+          dragging = true;
+          lastX = evt.clientX;
+          e.preventDefault();
+        }
+        
+      }, false);
+    
+      window.addEventListener('mousemove', function(e) {
+        var evt = e || event;
+        if (dragging) {
+            var delta = evt.clientX - lastX;
+            lastX = evt.clientX;
+            marginLeft += delta;
+            canvas.style.marginLeft = marginLeft + "px";
+        }
+        // e.preventDefault();
+      }, false);
+      
+      window.addEventListener('mouseup', function() {
+        dragging = false;
+      }, false);
       
     };
     window.onresize = resize;

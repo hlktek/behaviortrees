@@ -121,6 +121,7 @@
         settings.get('block_border_width'),
         settings.get('block_border_color')
     );
+    
     return shape;
   };
 
@@ -159,6 +160,7 @@
         settings.get('block_border_width'),
         settings.get('block_border_color')
     );
+    console.log('a')
     return shape;
   };
 

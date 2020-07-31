@@ -2,9 +2,9 @@ angular
   .module('app')
   .factory('editorService', editorService);
 
-editorService.$inject = ['$window'];
+editorService.$inject = ['$window', '$timeout'];
 
-function editorService($window) {
+function editorService($window, $timeout) {
   var service = {
     getDefaultSettings : getDefaultSettings,
     applySettings      : applySettings,
@@ -26,7 +26,9 @@ function editorService($window) {
     $window.editor.project.create();
   }
   function openProject(data) {
-    $window.editor.project.open(data);
+    $timeout(function(){
+      $window.editor.project.open(data);
+    }, 2000);
   }
   function closeProject() {
     $window.editor.project.close();
