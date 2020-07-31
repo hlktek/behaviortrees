@@ -28,7 +28,7 @@ function editorService($window, $timeout) {
   function openProject(data) {
     $timeout(function(){
       $window.editor.project.open(data);
-    }, 2000);
+    });
   }
   function closeProject() {
     $window.editor.project.close();

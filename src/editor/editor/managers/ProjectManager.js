@@ -4,10 +4,18 @@ b3e.editor.ProjectManager = function(editor) {
   /**
    * Creates a new project.
    */
-  this.create = function() {
+  this.create = async function() {
     this.close();
     console.log('createproject')
     var project = new b3e.project.Project(editor);
+    
+    // HACK ASYNC INIT NODE
+    var promiseInitProject = new Promise((resolve) => {
+      setTimeout(() => resolve("done init add custome node vao project"), 1000)
+    });
+    var p = await promiseInitProject;
+    console.log(p);
+
     editor.addChild(project);
     editor._project = project;
     editor.trigger('projectcreated', editor._project);
@@ -18,10 +26,16 @@ b3e.editor.ProjectManager = function(editor) {
   /**
    * Loads a project from data.
    */
-  this.open = function(data) {
+  this.open = async function(data) {
     this.close();
-    console.log('openproject')
+
     var project = new b3e.project.Project(editor);
+    // HACK ASYNC INIT NODE
+    var promiseInitProject = new Promise((resolve) => {
+      setTimeout(() => resolve("done init add custome node vao project"), 1000)
+    });
+    var p = await promiseInitProject;
+    console.log(p);
 
     editor.addChild(project);
     editor._project = project;

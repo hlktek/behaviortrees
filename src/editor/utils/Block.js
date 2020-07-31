@@ -11,7 +11,6 @@
    * @param {Object} node A `b3e.Node` object.
    */
   var Block = function(node) {
-    console.log(node)
 
     if(typeof node !== 'undefined') {
       this.Container_constructor();

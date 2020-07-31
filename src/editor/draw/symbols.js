@@ -139,7 +139,6 @@
     var numberOfPropetiers = Object.keys(properties).length
 
     if(numberOfPropetiers <=0 ) return null
-    console.log(numberOfPropetiers)
 
     var rectangleHeight = 30
     if(numberOfPropetiers>1){
@@ -159,7 +158,7 @@
       
       if( typeof properties[key] !== 'undefined' ){
         var i = Object.keys(properties).indexOf(key)+1;
-        console.log(key + " -> " + properties[key]);
+        // console.log(key + " -> " + properties[key]);
         var t = key + ": " + properties[key]
         var text = new createjs.Text(
           t,
