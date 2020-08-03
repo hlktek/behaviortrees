@@ -25,18 +25,20 @@
 
     function _activate() {
       var p = $window.editor.project.get();
-      var t = p.trees.getSelected();
-      var s = t.blocks.getSelected();
-      if (s.length === 1) {
-        vm.original = s[0];
-        vm.block = {
-          title       : vm.original.title,
-          description : vm.original.description,
-          properties  : tine.merge({}, vm.original.properties)
-        };
-      } else {
-        vm.original = false;
-        vm.block = false;
+      if(p){
+        var t = p.trees.getSelected();
+        var s = t.blocks.getSelected();
+        if (s.length === 1) {
+          vm.original = s[0];
+          vm.block = {
+            title       : vm.original.title,
+            description : vm.original.description,
+            properties  : tine.merge({}, vm.original.properties)
+          };
+        } else {
+          vm.original = false;
+          vm.block = false;
+        }
       }
     }
     function _event(e) {

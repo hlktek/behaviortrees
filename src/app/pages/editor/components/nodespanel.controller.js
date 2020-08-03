@@ -41,26 +41,28 @@
 
       var p = $window.editor.project.get();
       console.log('add node vao menu')
-      p.nodes.each(function(node) {
-        if (node.category === 'tree') return;
-        var list = vm.nodes[node.category];
-        if (!list) return;
-        list.push({
-          name: node.name,
-          title: _getTitle(node),
-          isDefault: node.isDefault
+      if(p){
+        p.nodes.each(function(node) {
+          if (node.category === 'tree') return;
+          var list = vm.nodes[node.category];
+          if (!list) return;
+          list.push({
+            name: node.name,
+            title: _getTitle(node),
+            isDefault: node.isDefault
+          });
         });
-      });
 
-      var selected = p.trees.getSelected();
-      p.trees.each(function(tree) {
-        var root = tree.blocks.getRoot();
-        vm.trees.push({
-          'id'       : tree._id,
-          'name'     : root.title || 'A behavior tree',
-          'active'   : tree===selected,
+        var selected = p.trees.getSelected();
+        p.trees.each(function(tree) {
+          var root = tree.blocks.getRoot();
+          vm.trees.push({
+            'id'       : tree._id,
+            'name'     : root.title || 'A behavior tree',
+            'active'   : tree===selected,
+          });
         });
-      });
+      }
     }
 
     function _event(e) {

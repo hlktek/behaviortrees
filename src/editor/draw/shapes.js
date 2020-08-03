@@ -175,7 +175,6 @@
     var propsHeight = 0;
     var isShowProperties = settings.get('show_properties');
     if(block._displayProperties && parseInt(isShowProperties)){
-      console.log('a')
       var propertiesBounds = block._displayProperties.getBounds();
       propsHeight = propertiesBounds.height
     }

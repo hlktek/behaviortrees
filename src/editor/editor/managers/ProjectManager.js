@@ -8,14 +8,7 @@ b3e.editor.ProjectManager = function(editor) {
     this.close();
     console.log('createproject')
     var project = new b3e.project.Project(editor);
-
-    // HACK ASYNC INIT NODE
-    // var promiseInitProject = new Promise((resolve) => {
-    //   setTimeout(() => resolve("done init add custome node vao project"), 1000)
-    // });
-    // var p = await promiseInitProject;
-    // console.log(p);
-
+    await this.loadCustomNode(project);
     editor.addChild(project);
     editor._project = project;
     editor.trigger('projectcreated', editor._project);
@@ -30,12 +23,15 @@ b3e.editor.ProjectManager = function(editor) {
     this.close();
 
     var project = new b3e.project.Project(editor);
+    await this.loadCustomNode(project);
+    
     // HACK ASYNC INIT NODE
-    var promiseInitProject = new Promise((resolve) => {
-      setTimeout(() => resolve("done init add custome node vao project"), 1000)
-    });
-    var p = await promiseInitProject;
-    console.log(p);
+    // var promiseInitProject = new Promise((resolve) => {
+    //   setTimeout(() => resolve("done init add custome node vao project"), 1000)
+    // });
+    // var p = await promiseInitProject;
+    // console.log(p);
+
     editor.addChild(project);
     editor._project = project;
     
@@ -68,4 +64,16 @@ b3e.editor.ProjectManager = function(editor) {
       editor._project._applySettings(settings);
     }
   };
+
+  this.loadCustomNode = async function(project) {
+    var response = await fetch(`/js/notes.json`);
+    var dataRes = await response.json();
+    var new_nodes = dataRes.custom_nodes
+    if(new_nodes && new_nodes.length >0 ){
+      new_nodes.forEach(function (node) {
+        project.nodes.add(b3[node.name], true);
+      });
+    }
+  };
+
 };

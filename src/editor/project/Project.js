@@ -32,7 +32,7 @@
     this.trees = new b3e.project.TreeManager(this._editor, this);
     this.nodes = new b3e.project.NodeManager(this._editor, this);
     this.history = new b3e.project.HistoryManager(this._editor, this);
-    console.log('add default node')
+    console.log('add default node');
     
     this.nodes.add(b3e.Root, true);
     this.nodes.add(b3.Sequence, true);
@@ -58,14 +58,15 @@
     // this.nodes.add(b3.TestDecorator, true);
     // this.nodes.add(b3.TestNodeAction, true);
     // this.nodes.add(b3.TestNodeCondition, true);
-    let response = await fetch(`/js/notes.json`);
-    let data = await response.json();
-    var custom_nodes = data.custom_nodes
-    if(custom_nodes && custom_nodes.length >0 ){
-      custom_nodes.forEach(function (node) {
-        _self.nodes.add(b3[node.name], true);
-      });
-    }
+
+    // let response = await fetch(`/js/notes.json`);
+    // let data = await response.json();
+    // var custom_nodes = data.custom_nodes
+    // if(custom_nodes && custom_nodes.length >0 ){
+    //   custom_nodes.forEach(function (node) {
+    //     _self.nodes.add(b3[node.name], true);
+    //   });
+    // }
     
     this._applySettings(this._editor._settings);
     this.history.clear();
