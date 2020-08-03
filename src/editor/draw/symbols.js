@@ -118,6 +118,8 @@
   };
 
   b3e.draw.textSymbol = function (block, settings) {
+    var properties = block.properties;
+    var numberOfPropetiers = Object.keys(properties).length
     var text = new createjs.Text(
       block.getTitle(),
       "18px Arial",
@@ -129,7 +131,7 @@
     var bounds = text.getBounds();
     var regYVal = bounds.height / 2;
     var isShowProperties = settings.get('show_properties');
-    if(window.renderTextProps && parseInt(isShowProperties)){
+    if(numberOfPropetiers>0 && window.renderTextProps && parseInt(isShowProperties)){
       bounds = window.renderTextProps.getBounds();
       regYVal = (bounds.height / 2)+5;
     }
