@@ -86,7 +86,8 @@
 
   b3e.draw.compositeShape = function(block, settings) {
     var propsHeight = 0;
-    if(block._displayProperties){
+    var isShowProperties = settings.get('show_properties');
+    if(block._displayProperties && parseInt(isShowProperties)){
       var propertiesBounds = block._displayProperties.getBounds();
       propsHeight = propertiesBounds.height
     }
@@ -172,7 +173,9 @@
 
   b3e.draw.actionShape = function(block, settings) {
     var propsHeight = 0;
-    if(block._displayProperties){
+    var isShowProperties = settings.get('show_properties');
+    if(block._displayProperties && parseInt(isShowProperties)){
+      console.log('a')
       var propertiesBounds = block._displayProperties.getBounds();
       propsHeight = propertiesBounds.height
     }
@@ -209,7 +212,8 @@
 
   b3e.draw.conditionShape = function(block, settings) {
     var propsHeight = 0;
-    if(block._displayProperties){
+    var isShowProperties = settings.get('show_properties');
+    if(block._displayProperties && parseInt(isShowProperties)){
       var propertiesBounds = block._displayProperties.getBounds();
       propsHeight = propertiesBounds.height
     }

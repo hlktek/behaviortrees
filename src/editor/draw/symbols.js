@@ -128,12 +128,13 @@
     
     var bounds = text.getBounds();
     var regYVal = bounds.height / 2;
-    if(window.renderTextProps){
+    var isShowProperties = settings.get('show_properties');
+    if(window.renderTextProps && parseInt(isShowProperties)){
       bounds = window.renderTextProps.getBounds();
       regYVal = (bounds.height / 2)+5;
     }
     text.regY = regYVal;
-    //text.regY = -block._height;
+    // text.regY = -block._height;
     // text.x = -block._width/2;
     // text.y = -block._height/2;
     return text;

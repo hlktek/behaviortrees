@@ -71,6 +71,7 @@
 
     this._width = this._settings.get('block_'+category+'_width');
     this._height = this._settings.get('block_'+category+'_height');
+    
     this.removeAllChildren();
 
     this._displayProperties = properties(this, this._settings);
@@ -81,10 +82,11 @@
     this.addChild(this._displayShape);
 
     this.addChild(this._displaySymbol);
-    
-    //if(category=='action'){
+
+    var isShowProperties = this._settings.get('show_properties');
+    if(parseInt(isShowProperties)){
       this.addChild(this._displayProperties); 
-    //}
+    }
   };
 
   /**

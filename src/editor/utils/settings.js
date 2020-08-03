@@ -20,6 +20,7 @@
     snap_y        : 12,
     snap_offset_x : 0,
     snap_offset_y : 0,
+    show_properties : 1,
     layout        : 'horizontal', // vertical
     max_history   : 100,
 
