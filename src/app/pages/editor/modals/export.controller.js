@@ -101,7 +101,7 @@
     }
 
     function saveToServer() {
-      $http.post('http://128.199.221.15/api/behaviortree', vm.pretty , { headers: {'Content-Type': 'application/xml', 'Accept': 'text/plain' }})
+      $http.post('http://128.199.221.15:16999/api/behaviortree', vm.pretty , { headers: {'Content-Type': 'application/xml', 'Accept': 'text/plain' }})
       .then(function(response) {
         if(response.status == 200){
           notificationService.success(
