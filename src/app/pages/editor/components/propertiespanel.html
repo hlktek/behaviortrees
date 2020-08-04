@@ -6,7 +6,17 @@
     <p class="text-center">Select a <strong>single</strong> block to change its properties.</p>
     <p class="text-center"><em>NOTE: The root node represents a tree. Therefore, changes applied to this node will persist on the tree object.</em></p>
   </div>
-  
+
+  <div ng-show="propertiespanel.block && propertiespanel.block.category=='root'" class="form-group properties">
+    <label for="title">Fighter Id</label>
+    <input type="text" 
+           class="form-control"
+           name="title"
+           placeholder="Fighter Id"
+           ng-model="propertiespanel.fighterId" 
+           ng-change="propertiespanel.updateFighterId()">
+  </div>
+
   <div ng-show="propertiespanel.block" class="properties">
     <form>
       <div class="form-group">

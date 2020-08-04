@@ -7,15 +7,19 @@
 
   ExportController.$inject = [
     '$scope',
+    '$rootScope',
+    '$http',
     '$document',
     '$window',
     '$stateParams',
     'dialogService',
     'notificationService',
-    'storageService'
+    'storageService',
   ];
 
   function ExportController($scope,
+                            $rootScope,
+                            $http,
                             $document,
                             $window,
                             $stateParams,
@@ -34,6 +38,7 @@
     vm.showPretty  = showPretty;
     vm.select      = select;
     vm.save        = save;
+    vm.saveToServer = saveToServer;
 
     _active();
 
@@ -95,16 +100,30 @@
         });
     }
 
+    function saveToServer() {
+      $http.post('http://128.199.221.15/api/behaviortree', vm.pretty , { headers: {'Content-Type': 'application/xml', 'Accept': 'text/plain' }})
+      .then(function(response) {
+        if(response.status == 200){
+          notificationService.success(
+            'File saved',
+            'The file has been saved successfully.'
+          );
+        }
+      }, function() {
+        notificationService.error("Error", "Please try again");
+      });
+    }
+
     function showCompact() {
       vm.result = vm.compact;
     }
+    
     function showPretty() {
       vm.result = vm.pretty;
     }
 
     function transformTreeDataToNewJson(treeData) {
         const nodes = treeData.nodes;
-
         const root = {
           "_declaration": {
               "_attributes": {
@@ -114,6 +133,9 @@
           },
           'Board' : {
             'Fighter' : {
+              '_attributes' : {
+                'ids' :  $rootScope.fighterId,
+              },
               'Routine' : getNode(nodes, treeData.root)
             },
             'CustomField' : treeData.custom_nodes

@@ -7,16 +7,18 @@
 
   PropertiespanelController.$inject = [
     '$scope',
+    '$rootScope',
     '$window'
   ];
 
-  function PropertiespanelController($scope,
-                                     $window) {
+  function PropertiespanelController($scope, $rootScope, $window) {
     var vm = this;
     vm.original = null;
     vm.block = null;
     vm.update = update;
+    vm.updateFighterId = updateFighterId;
     vm.keydown = keydown;
+    vm.fighterId = '';
 
     _create();
     _activate();
@@ -32,14 +34,17 @@
           vm.original = s[0];
           vm.block = {
             title       : vm.original.title,
+            category       : vm.original.category,
             description : vm.original.description,
-            properties  : tine.merge({}, vm.original.properties)
+            properties  : tine.merge({}, vm.original.properties),
           };
         } else {
           vm.original = false;
           vm.block = false;
         }
       }
+     
+
     }
     function _event(e) {
       setTimeout(function() {$scope.$apply(function() { _activate(); });}, 0);
@@ -74,5 +79,10 @@
       var t = p.trees.getSelected();
       t.blocks.update(vm.original, vm.block);
     }
+
+    function updateFighterId() {
+      $rootScope.fighterId = vm.fighterId;
+    }
+
   }
 })();
