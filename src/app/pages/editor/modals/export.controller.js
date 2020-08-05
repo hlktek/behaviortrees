@@ -134,7 +134,7 @@
           'Board' : {
             'Fighter' : {
               '_attributes' : {
-                'ids' :  $rootScope.fighterId,
+                'ids' :  treeData.fighterIds,
               },
               'Routine' : getNode(nodes, treeData.root)
             },

@@ -67,6 +67,7 @@ b3e.editor.ExportManager = function(editor) {
       description  : root.description,
       root         : first[0] || null,
       properties   : root.properties,
+      fighterIds   : root.fighterIds,
       nodes        : {},
       display     : {
         camera_x : tree.x,

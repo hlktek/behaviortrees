@@ -16,7 +16,7 @@
     vm.original = null;
     vm.block = null;
     vm.update = update;
-    vm.updateFighterId = updateFighterId;
+    // vm.updateFighterId = updateFighterId;
     vm.keydown = keydown;
     vm.fighterId = '';
 
@@ -36,6 +36,7 @@
             title       : vm.original.title,
             category       : vm.original.category,
             description : vm.original.description,
+            fighterIds : vm.original.fighterIds,
             properties  : tine.merge({}, vm.original.properties),
           };
         } else {
@@ -80,9 +81,9 @@
       t.blocks.update(vm.original, vm.block);
     }
 
-    function updateFighterId() {
-      $rootScope.fighterId = vm.fighterId;
-    }
+    // function updateFighterId() {
+    //   $rootScope.fighterId = vm.fighterId;
+    // }
 
   }
 })();

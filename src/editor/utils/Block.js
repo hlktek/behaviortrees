@@ -21,6 +21,7 @@
       this.name        = dict.name;
       this.title       = dict.title || this.name;
       this.category    = dict.category;
+      this.fighterIds    = dict.fighterIds;
       this.description = dict.description || '';
       this.properties  = tine.merge({}, dict.properties);
 

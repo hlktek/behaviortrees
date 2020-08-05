@@ -80,11 +80,13 @@
       console.log(treeAsNewJson);
 
       let root = {};
+      let rootAttr = {};
 
       if (treeAsNewJson && treeAsNewJson.Board && treeAsNewJson.Board.Fighter) {
         root = treeAsNewJson.Board.Fighter.Routine;
+        rootAttr = treeAsNewJson.Board.Fighter._attributes
       }
-      
+      console.log(root);
       let treeAsJson = {
         "root": root._attributes.id,
         "version": "0.3.0",
@@ -92,6 +94,7 @@
         "id": createUUID(),
         "title": "A behavior tree",
         "description": "",
+        "fighterIds": rootAttr.ids,
         "properties": {},
         "nodes": {},
         "display": {

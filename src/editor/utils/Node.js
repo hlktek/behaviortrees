@@ -15,6 +15,7 @@
     this.title = null;
     this.category = null;
     this.description = null;
+    this.fighterIds = null;
     this.properties = {};
     this.isDefault = !!isDefault;
 
@@ -32,7 +33,7 @@
       n.category    = this.category;
       n.description = this.description;
       n.properties  = this.properties;
-      
+      n.fighterIds = this.fighterIds;
       return n;
     };
   };

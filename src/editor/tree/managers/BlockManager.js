@@ -122,6 +122,11 @@ b3e.tree.BlockManager = function(editor, project, tree) {
     } else {
       block.description = node.description || block.description;
     }
+    if (typeof template.fighterIds !== 'undefined') {
+      block.fighterIds = template.fighterIds;
+    } else {
+      block.fighterIds = node.fighterIds || block.fighterIds;
+    }
     if (typeof template.properties !== 'undefined') {
       block.properties = tine.merge({}, node.properties, template.properties);
     } else {
@@ -134,6 +139,7 @@ b3e.tree.BlockManager = function(editor, project, tree) {
       title       : block.title,
       description : block.description,
       properties  : block.properties,
+      fighterIds  : block.fighterIds,
     };
 
     // redraw connections linked to the entity

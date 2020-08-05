@@ -20,6 +20,7 @@ b3e.project.NodeManager = function(editor, project) {
       n.category    = node.category;
       n.title       = node.title;
       n.description = node.description;
+      n.fighterIds = node.fighterIds;
       n.properties  = tine.merge({}, node.properties||node.parameters);
 
       node = n;
@@ -61,6 +62,7 @@ b3e.project.NodeManager = function(editor, project) {
       description : node.description,
       category    : node.category,
       properties  : node.properties,
+      fighterIds  : node.fighterIds,
     };
 
     if (typeof template.name !== 'undefined') {
@@ -68,6 +70,9 @@ b3e.project.NodeManager = function(editor, project) {
     }
     if (typeof template.title !== 'undefined') {
       node.title = template.title;
+    }
+    if (typeof template.fighterIds !== 'undefined') {
+      node.fighterIds = template.fighterIds;
     }
     if (typeof template.category !== 'undefined') {
       node.category = template.category;
@@ -85,6 +90,7 @@ b3e.project.NodeManager = function(editor, project) {
       description : node.description,
       category    : node.category,
       properties  : node.properties,
+      fighterIds  : node.fighterIds,
     };
 
     project.history._beginBatch();

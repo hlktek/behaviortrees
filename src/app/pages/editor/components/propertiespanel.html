@@ -7,16 +7,6 @@
     <p class="text-center"><em>NOTE: The root node represents a tree. Therefore, changes applied to this node will persist on the tree object.</em></p>
   </div>
 
-  <div ng-show="propertiespanel.block && propertiespanel.block.category=='root'" class="form-group properties">
-    <label for="title">Fighter Id</label>
-    <input type="text" 
-           class="form-control"
-           name="title"
-           placeholder="Fighter Id"
-           ng-model="propertiespanel.fighterId" 
-           ng-change="propertiespanel.updateFighterId()">
-  </div>
-
   <div ng-show="propertiespanel.block" class="properties">
     <form>
       <div class="form-group">
@@ -27,6 +17,17 @@
                placeholder="Title"
                ng-keydown="propertiespanel.keydown($event)"
                ng-model="propertiespanel.block.title"
+               ng-change="propertiespanel.update()">
+      </div>
+
+      <div class="form-group" ng-show="propertiespanel.block && propertiespanel.block.category=='root'">
+        <label for="fighterIds">Fighter Ids</label>
+        <input type="text" 
+               class="form-control"
+               name="fighterIds"
+               placeholder="Fighter Ids"
+               ng-keydown="propertiespanel.keydown($event)"
+               ng-model="propertiespanel.block.fighterIds"
                ng-change="propertiespanel.update()">
       </div>
 
