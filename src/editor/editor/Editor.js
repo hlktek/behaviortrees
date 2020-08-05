@@ -96,7 +96,7 @@
             lastY = evt.clientY;
             marginLeft += delta;
             marginTop += deltaY;
-            canvas.style.marginLeft = marginLeft + "px";
+            // canvas.style.marginLeft = marginLeft + "px";
             // canvas.style.marginTop = marginTop + "px";
         }
         // e.preventDefault();
