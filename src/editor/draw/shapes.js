@@ -86,19 +86,19 @@
 
   b3e.draw.compositeShape = function(block, settings) {
     var propsHeight = 0;
+    var propsWidth = 0;
     var isShowProperties = settings.get('show_properties');
     if(block._displayProperties && parseInt(isShowProperties)){
       var propertiesBounds = block._displayProperties.getBounds();
-      propsHeight = propertiesBounds.height
+      propsHeight = propertiesBounds.height;
+      propsWidth = propertiesBounds.width;
     }
-
 
     var bounds = block._displaySymbol.getBounds();
     var _width = 0;
 
     if (bounds) { _width = bounds.width+40; }
-
-    var w = Math.max(_width, block._width);
+    var w = Math.max( _width, block._width + propsWidth);
     var h = propsHeight + block._height;
     var anchorOffsetX = settings.get('anchor_offset_x');
     var shape = block._displayShape;
