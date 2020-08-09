@@ -52,8 +52,10 @@ b3e.editor.ImportManager = function(editor) {
       block.id = spec.id;
       block.title = spec.title;
       block.description = spec.description;
-      block.fighterIds  = spec.fighterIds,
-      block.properties = tine.merge({}, block.properties, spec.properties);
+      block.fighterIds  = spec.fighterIds;
+      // block.properties = tine.merge({}, block.properties, spec.properties);
+      block.properties = spec.properties;
+      
       block._redraw();
       
       if (spec.id === data.root) {

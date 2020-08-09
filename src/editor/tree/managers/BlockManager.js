@@ -128,7 +128,8 @@ b3e.tree.BlockManager = function(editor, project, tree) {
       block.fighterIds = node.fighterIds || block.fighterIds;
     }
     if (typeof template.properties !== 'undefined') {
-      block.properties = tine.merge({}, node.properties, template.properties);
+      // block.properties = tine.merge({}, node.properties, template.properties);
+      block.properties = template.properties;
     } else {
       block.properties = tine.merge({}, node.properties, block.properties);
     }
