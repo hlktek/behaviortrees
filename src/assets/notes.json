@@ -14,6 +14,15 @@
     {
       "version": "0.3.0",
       "scope": "node",
+      "name": "RandomSelector",
+      "category": "composite",
+      "title": "RandomSelector",
+      "description": "Please add property: 'percent' to children node",
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
       "name": "Idle",
       "category": "action",
       "title": "Idle",
@@ -167,15 +176,6 @@
       "properties": {
         "action": ""
       }
-    },
-    {
-      "version": "0.3.0",
-      "scope": "node",
-      "name": "Hurt",
-      "category": "action",
-      "title": "Hurt",
-      "description": null,
-      "properties": {}
     },
     {
       "version": "0.3.0",
