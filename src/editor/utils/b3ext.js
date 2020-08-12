@@ -33,6 +33,7 @@ function loadNodesJSON(callback) {
                 var p = newNode.prototype
                 p.name = node.title;
                 p.properties = node.properties;
+                p.description = node.description;
                 p.tick = function(tick) {
                     return b3.SUCCESS;
                 }
