@@ -188,6 +188,50 @@
         "from":0,
         "to":0
       }
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Hurt",
+      "category": "action",
+      "title": "Hurt",
+      "description": {},
+      "properties": {}
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "Pair",
+      "category": "action",
+      "title": "Pair",
+      "description": {},
+      "properties": {
+        "type": {
+          "_text": "0"
+        }
+      }
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "CanBack",
+      "category": "condition",
+      "title": "CanBack",
+      "description": null,
+      "properties": {
+        "delta": 0
+      }
+    },
+    {
+      "version": "0.3.0",
+      "scope": "node",
+      "name": "IsDistancePolar",
+      "category": "condition",
+      "title": "IsDistancePolar",
+      "description": null,
+      "properties": {
+        "delta": 0
+      }
     }
   ]
 }
