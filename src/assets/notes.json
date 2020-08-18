@@ -8,7 +8,7 @@
       "name": "Selector",
       "category": "composite",
       "title": "Selector",
-      "description": {},
+      "description": "",
       "properties": {}
     },
     {
@@ -26,7 +26,7 @@
       "name": "Idle",
       "category": "action",
       "title": "Idle",
-      "description": {},
+      "description": "",
       "properties": {}
     },
     {
@@ -35,7 +35,7 @@
       "name": "Dodge",
       "category": "action",
       "title": "Dodge",
-      "description": {},
+      "description": "",
       "properties": {}
     },
     {
@@ -44,7 +44,7 @@
       "name": "Counterattack",
       "category": "action",
       "title": "Counterattack",
-      "description": {},
+      "description": "",
       "properties": {}
     },
     {
@@ -53,7 +53,7 @@
       "name": "Go",
       "category": "action",
       "title": "Go",
-      "description": {},
+      "description": "",
       "properties": {}
     },
     {
@@ -62,7 +62,7 @@
       "name": "Jump",
       "category": "action",
       "title": "Jump",
-      "description": {},
+      "description": "",
       "properties": {}
     },
     {
@@ -71,7 +71,7 @@
       "name": "GoBack",
       "category": "action",
       "title": "GoBack",
-      "description": {},
+      "description": "",
       "properties": {}
     },
     {
@@ -80,7 +80,7 @@
       "name": "Kick",
       "category": "action",
       "title": "Kick",
-      "description": {},
+      "description": "",
       "properties": {}
     },
     {
@@ -89,7 +89,7 @@
       "name": "Peck",
       "category": "action",
       "title": "Peck",
-      "description": {},
+      "description": "",
       "properties": {}
     },
     {
@@ -98,7 +98,7 @@
       "name": "Scare",
       "category": "action",
       "title": "Scare",
-      "description": null,
+      "description": "",
       "properties": {
         "type": 0
       }
@@ -109,7 +109,7 @@
       "name": "Flee",
       "category": "action",
       "title": "Flee",
-      "description": {},
+      "description": "",
       "properties": {}
     },
     {
@@ -118,7 +118,7 @@
       "name": "IsActive",
       "category": "condition",
       "title": "IsActive",
-      "description": {},
+      "description": "",
       "properties": {}
     },
     {
@@ -127,7 +127,7 @@
       "name": "IsPassive",
       "category": "condition",
       "title": "IsPassive",
-      "description": {},
+      "description": "",
       "properties": {}
     },
     {
@@ -172,7 +172,7 @@
       "name": "IsEnemyAction",
       "category": "condition",
       "title": "IsEnemyAction",
-      "description": null,
+      "description": "",
       "properties": {
         "action": ""
       }
@@ -183,10 +183,10 @@
       "name": "IsZone",
       "category": "condition",
       "title": "IsZone",
-      "description": null,
+      "description": "",
       "properties": {
-        "from":0,
-        "to":0
+        "from": 0,
+        "to": 0
       }
     },
     {
@@ -195,7 +195,7 @@
       "name": "Hurt",
       "category": "action",
       "title": "Hurt",
-      "description": {},
+      "description": "",
       "properties": {}
     },
     {
@@ -204,7 +204,7 @@
       "name": "Pair",
       "category": "action",
       "title": "Pair",
-      "description": {},
+      "description": "",
       "properties": {
         "type": {
           "_text": "0"
@@ -217,7 +217,7 @@
       "name": "CanBack",
       "category": "condition",
       "title": "CanBack",
-      "description": null,
+      "description": "",
       "properties": {
         "delta": 0
       }
@@ -228,7 +228,7 @@
       "name": "IsDistancePolar",
       "category": "condition",
       "title": "IsDistancePolar",
-      "description": null,
+      "description": "",
       "properties": {
         "delta": 0
       }

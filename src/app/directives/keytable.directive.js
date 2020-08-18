@@ -89,9 +89,10 @@
 
         vm.model[r.key] = value;
         
-        if (vm._onChange) {
-          vm._onChange($scope);
-        }
+      }
+
+      if (vm._onChange) {
+        vm._onChange($scope);
       }
     }
   }
